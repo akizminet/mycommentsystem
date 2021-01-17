@@ -1,9 +1,7 @@
-from re import error
-from flask import Flask, json, request, session, jsonify
+from flask import Flask, request, session, jsonify
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from spam import replace_username
-import datetime
 
 app = Flask(__name__)
 
@@ -92,5 +90,4 @@ def get_comment(slug):
         return jsonify([comment.to_dict() for comment in comments])
 
 if __name__ == "__main__":
-    app.debug = True
     app.run(host="0.0.0.0", port=5000)
