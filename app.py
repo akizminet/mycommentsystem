@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 CORS(app, supports_credentials=True)
 
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.secret_key = os.environ.get('SECRET_KET')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Database initialization
